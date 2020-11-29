@@ -8,6 +8,10 @@ p {
     padding-bottom: 20px
 }
 
+strong {
+    color:rgb(112, 28, 66);
+}
+
 h1 {
     font-size: 60px
 }
@@ -51,8 +55,8 @@ h5 {
 .btn:hover,
 .btn:focus {
     color: #fff;
-    border-color: rgb(161, 93, 152);
-    background-color: rgb(161, 93, 152)
+    border-color: rgb(112, 28, 66);
+    background-color: rgb(112, 28, 66)
 }
 
 .btn-white {
@@ -67,19 +71,19 @@ h5 {
 
 .btn-white:hover,
 .btn-white:focus {
-    color: rgb(161, 93, 152);
-    border-color: rgb(161, 93, 152)
+    color: rgb(112, 28, 66);
+    border-color: rgb(112, 28, 66)
 }
 
 .btn-fill {
     color: #fff;
-    border: solid 2px rgb(161, 93, 152);
+    border: solid 2px rgb(112, 28, 66);
     -moz-border-radius: 40px;
     -webkit-border-radius: 40px;
     border-radius: 40px;
     display: inline-block;
     text-transform: uppercase;
-    background-color: rgb(161, 93, 152)
+    background-color: rgb(112, 28, 66)
 }
 
 .btn-fill:hover,
@@ -128,7 +132,7 @@ section.blog {
 }
 
 a {
-    color: rgb(161, 93, 152);
+    color: rgb(112, 28, 66);
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     -webkit-transition-duration: 200ms;
@@ -144,7 +148,7 @@ a:focus {
 }
 
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family:  'Baskervville', "Open Sans", sans-serif;
     font-weight: 300;
     color: rgba(28, 54, 83, 0.6);
     -webkit-text-size-adjust: 100%
@@ -411,7 +415,7 @@ section .header {
 }
 
 .hero .down-arrow a {
-    color: rgba(161, 93, 152)
+    color: rgba(112, 28, 66)
 }
 
 .hero h1 {
@@ -445,7 +449,7 @@ section .header {
 .fixed {
     padding: 0px 20px;
     position: fixed;
-    background-color: rgba(161, 93, 152, 0.8);
+    background-color: rgba(112, 28, 66, 0.8);
     z-index: 999;
     width: 100%
 }
@@ -457,7 +461,7 @@ header {
     text-align: left;
     width: 100%;
     margin: 0 auto;
-    // background-color: rgba(161, 93, 152, 0.6);
+    // background-color: rgba(112, 28, 66, 0.6);
     transition: padding 300ms ease-in-out
 }
 
@@ -494,7 +498,7 @@ header ul.primary-nav li a {
 }
 
 header ul.primary-nav li a:hover {
-    color: rgb(161, 93, 152)
+    color: rgb(112, 28, 66)
 }
 
 header ul.primary-nav li:last-child a {
@@ -510,7 +514,7 @@ header ul.member-actions li a {
 }
 
 header ul.member-actions li a:hover {
-    color: rgb(161, 93, 152)
+    color: rgb(112, 28, 66)
 }
 
 header .header-nav {
@@ -539,7 +543,7 @@ header .member-actions {
 
 .intro span.icon {
     font-size: 40px;
-    color: rgb(161, 93, 152);
+    color: rgb(112, 28, 66);
     font-weight: bold
 }
 
@@ -584,7 +588,7 @@ header .member-actions {
 
 .features span.icon {
     font-size: 35px;
-    color: rgb(161, 93, 152);
+    color: rgb(112, 28, 66);
     font-weight: bold
 }
 
@@ -734,6 +738,20 @@ header .member-actions {
     color: rgba(28, 54, 83, 0.6)
 }
 
+.iframe-container{
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; 
+    height: 0;
+  }
+  .iframe-container iframe{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
 .blog {
     padding-bottom: 120px
 }
@@ -905,6 +923,7 @@ header .member-actions {
     margin: auto;
     height: 280px;
     width: 95%;
+    background: rgba(248, 252, 10, 0.5);
 }
 
 #video-content {
@@ -992,7 +1011,7 @@ header .member-actions {
 }
 
 .rsvp .rsvp-form .form-input-group i {
-    color: rgb(161, 93, 152);
+    color: rgb(112, 28, 66);
     font-size: 14px
 }
 
