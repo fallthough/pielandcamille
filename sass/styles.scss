@@ -447,7 +447,7 @@ section .header {
 }
 
 .fixed {
-    padding: 0px 20px;
+    padding: 0px 0px;
     position: fixed;
     background-color: rgba(112, 28, 66, 0.8);
     z-index: 999;
@@ -455,7 +455,7 @@ section .header {
 }
 
 header {
-    padding: 50px 20px;
+    padding: 0px 0px; // 50px 20px;
     border-bottom: solid 1px rgba(255, 255, 255, 0.2);
     position: relative;
     text-align: left;
@@ -480,7 +480,7 @@ header .logo {
 }
 
 header .logo img {
-    height: 47px
+    height: 48px
 }
 
 header ul.primary-nav {

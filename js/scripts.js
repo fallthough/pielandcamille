@@ -185,23 +185,23 @@ $(document).ready(function () {
         },
         data: {
             // Event title
-            title: "Paul and Rochelle's Wedding",
+            title: "Piel and Camille's Wedding",
 
             // Event start date
-            start: new Date('Jun 25, 2020 16:00'),
+            start: new Date('Dec 17, 2020 16:00'),
 
             // Event duration (IN MINUTES)
             // duration: 120,
 
             // You can also choose to set an end time
             // If an end time is set, this will take precedence over duration
-            end: new Date('Jun 25, 2020 21:00'),
+            end: new Date('Dec 17, 2020 21:00'),
 
             // Event Address
-            address: 'Aquila Crystal Palace, Tagaytay City',
+            address: 'SAVANNA FARM TAGAYTAY by SOLANGE',
 
             // Event Description
-            description: "We can't wait to see you on our big day. For any queries or issues contact us."
+            description: "We can't wait to see you on our big day."
         }
     });
 
@@ -212,33 +212,54 @@ $(document).ready(function () {
     $('#rsvp-form').on('submit', function (e) {
         e.preventDefault();
         var data = $(this).serialize();
-        
-        // $.ajaxSetup({
-        //     headers:{
-        //         'Access-Control-Allow-Origin' : '*'
-        //     }
-        //  });
+    
         $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
-
-        if (MD5($('#invite_code').val()) !== '81dc9bdb52d04dc20036dbd8313ed055'
-            && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
+        /*
+            1256    e3251075554389fe91d17a794861d47b
+            2643    38181d991caac98be8fb2ecb8bd0f166
+            3459    13d63838ef1fb6f34ca2dc6821c60e49
+            4586    e2c4a40d50b47094f571e40efead3900
+            5862    ecb287ff763c169694f682af52c1f309
+            6874    5d50d22735a7469266aab23fd8aeb536
+        */
+        if (MD5($('#invite_code').val()) !== 'e3251075554389fe91d17a794861d47b'
+            && MD5($('#invite_code').val()) !== '38181d991caac98be8fb2ecb8bd0f166'
+            && MD5($('#invite_code').val()) !== '13d63838ef1fb6f34ca2dc6821c60e49'
+            && MD5($('#invite_code').val()) !== 'e2c4a40d50b47094f571e40efead3900'
+            && MD5($('#invite_code').val()) !== 'ecb287ff763c169694f682af52c1f309'
+            && MD5($('#invite_code').val()) !== '5d50d22735a7469266aab23fd8aeb536'
+            ) {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
         } else {
-            $.post('https://script.google.com/macros/s/AKfycbyAoPq4sQqnkkMvOhsswDqlrFjnqWcBGLgciCTwaUgHNvNYaS8/exec', data)
-                .done(function (data) {
-                    console.log(data);
-                    if (data.result === "error") {
-                        $('#alert-wrapper').html(alert_markup('danger', data.message));
-                    } else {
-                        $('#alert-wrapper').html('');
-                        $('#rsvp-modal').modal('show');
-                        document.getElementById('rsvp-form').reset();
-                    }
-                })
-                .fail(function (data) {
-                    console.log(data);
-                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
-                });
+            if (MD5($('#invite_code').val()) === 'e3251075554389fe91d17a794861d47b' && $('#extras').val() > 1) {
+                $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Only 1 companion is allowed.'));
+            } else if  (MD5($('#invite_code').val()) === '38181d991caac98be8fb2ecb8bd0f166' && $('#extras').val() > 2) {
+                $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Only up to 2 companions is allowed.'));
+            } else if  (MD5($('#invite_code').val()) === '13d63838ef1fb6f34ca2dc6821c60e49' && $('#extras').val() > 3) {
+                $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Only up to 3 companions is allowed.'));
+            } else if  (MD5($('#invite_code').val()) === 'e2c4a40d50b47094f571e40efead3900' && $('#extras').val() > 4) {
+                $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Only up to 4 companions is allowed.'));
+            } else if  (MD5($('#invite_code').val()) === 'ecb287ff763c169694f682af52c1f309' && $('#extras').val() > 5) {
+                $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Only up to 5 companions is allowed.'));
+            } else if  (MD5($('#invite_code').val()) === '5d50d22735a7469266aab23fd8aeb536' && $('#extras').val() > 6) {
+                $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Only up to 6 companions is allowed.'));
+            } else {
+                $.post('https://script.google.com/macros/s/AKfycbyAoPq4sQqnkkMvOhsswDqlrFjnqWcBGLgciCTwaUgHNvNYaS8/exec', data)
+                    .done(function (data) {
+                        console.log(data);
+                        if (data.result === "error") {
+                            $('#alert-wrapper').html(alert_markup('danger', data.message));
+                        } else {
+                            $('#alert-wrapper').html('');
+                            $('#rsvp-modal').modal('show');
+                            document.getElementById('rsvp-form').reset();
+                        }
+                    })
+                    .fail(function (data) {
+                        console.log(data);
+                        $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
+                    });
+            }
         }
     });
 
